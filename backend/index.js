@@ -1,36 +1,32 @@
-// uses common js
+// import packages
 const express = require("express");
 const cors = require("cors");
-const mongoose = require('mongoose');
-
-// uses es module
-//import express from "express";
-
+const mongoose = require("mongoose");
 const app = express();
 
 // middleware
-app.use(express.json());    // ensures all data sent is in JSON
-app.use(express.urlencoded({ extended: true}));
-app.use(cors("*")); // sets who can access this api endpoint
+app.use(express.json());
+app.use(express.urlencoded( { extended: true } ));
+app.use(cors("*"));
 
-// routes
-app.get("/", function(req, res) {
-    res.send("Hello World");
+// get routes
+app.get("/welcome", function(req, res) {
+    res.send("Hello");
 });
 
-// start the web server
-app.listen(3000, function () {
-    console.log("Server running at port 3000");
+app.get("/dinner", function(req, res) {
+    let text = "What's for dinner?";
+    res.send(text);
+});
+
+// run the server
+app.listen(2000, function() {
+    console.log("Server has started!");
 });
 
 // connect to database
-const connectionString = "mongodb+srv://jokesene:iFLa6s1UmnQ1qZpA@main-cluster.5n4zksa.mongodb.net/?retryWrites=true&w=majority&appName=main-cluster";
+const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPP@main-cluster.jqtcoe5.mongodb.net/?retryWrites=true&w=majority&appName=main-cluster";
 
 mongoose.connect(connectionString)
-  .then(() => console.log('Connected!'))
-  .catch((err) => console.log(err));
-
-// start the web server
-app.listen(3000, function () {
-    console.log("Server running at port 3000");
-});
+    .then(() => {console.log("Connection successful!")})
+    .catch((error) => {console.log(error)});
