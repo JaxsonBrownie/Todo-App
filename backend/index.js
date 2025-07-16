@@ -9,14 +9,9 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(cors("*"));
 
-// get routes
-app.get("/welcome", function(req, res) {
-    res.send("Hello");
-});
-
-app.get("/dinner", function(req, res) {
-    let text = "What's for dinner?";
-    res.send(text);
+// routes
+app.get("/", function(req, res) {
+    res.send("Hello World");
 });
 
 // run the server
