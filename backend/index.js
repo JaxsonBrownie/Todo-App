@@ -24,8 +24,8 @@ app.listen(2000, function() {
     console.log("Server has started!");
 });
 
-// connect to database
-const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPP@main-cluster.jqtcoe5.mongodb.net/?retryWrites=true&w=majority&appName=main-cluster";
+// connect to database (THIS WILL BE DIFFERENT FOR YOUR DATABASE)
+const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPPS@main-cluster.jqtcoe5.mongodb.net/?retryWrites=true&w=majority&appName=main-cluster";
 
 mongoose.connect(connectionString)
     .then(() => {console.log("Connection successful!")})
