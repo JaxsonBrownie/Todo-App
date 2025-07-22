@@ -25,7 +25,7 @@ app.get("/todos", async (req, res) => {
         const response = await TodoModel.find({});
         console.log(response);
 
-        // send the todo items as a response
+        // send response
         res.json(response);
     } catch (err) {
         console.log(err);
@@ -44,7 +44,7 @@ app.post("/todos", async (req, res) => {
         const newTodo = await TodoModel.create(todo);
         console.log("Created todo item:" + newTodo)
 
-        // send ok status response
+        // send response
         res.status(200).send("Successful");
     } catch (err) {
         console.log(err);
@@ -62,7 +62,7 @@ app.delete("/todos/:id", async (req, res) => {
             _id: id,
         })
         
-
+        // send response
         res.status(200).send("Deleted todo item: " + deletedTodo);
     } catch (err) {
         console.log(err);
@@ -78,11 +78,15 @@ app.put("/todos/:id", async(req, res) => {
         const id = req.params.id;
         const newText = req.body.text;
 
+        console.log(newText);
+
+        // create new todo item and update
         const newTodo = {
             "text": newText,
         };
         const updatedTodo = await TodoModel.findByIdAndUpdate(id, newTodo);
 
+        // send response
         res.status(200).send("Updated todo item: " + updatedTodo);
     } catch (err) {
         console.log(err);
@@ -94,11 +98,11 @@ app.put("/todos/:id", async(req, res) => {
 // connect to database (THIS STRING WILL BE DIFFERENT FOR YOUR DATABASE)
 const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPPS@main-cluster.jqtcoe5.mongodb.net/todo_db";
 mongoose.connect(connectionString)
-    .then(() => {console.log("Connection successful!")})
+    .then(() => {console.log("Database connection successful!")})
     .catch((error) => {console.log(error)});
 
 
 // run the server
-app.listen(2000, function() {
+app.listen(3000, function() {
     console.log("Server has started!");
 });
