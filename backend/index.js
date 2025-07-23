@@ -4,11 +4,15 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-
 // middleware
 app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(cors("*"));
+
+// GET request
+app.get("/todos", (req, res) => {
+    res.send("This is the main endpoint");
+});
 
 // run the server
 app.listen(2000, () => {
@@ -16,7 +20,7 @@ app.listen(2000, () => {
 });
 
 // connect to database
-const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPP@main-cluster.jqtcoe5.mongodb.net/?retryWrites=true&w=majority&appName=main-cluster";
+const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPPS@main-cluster.jqtcoe5.mongodb.net/";
 
 mongoose.connect(connectionString)
     .then(() => {console.log("Connection successful!")})
