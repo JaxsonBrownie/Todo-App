@@ -9,9 +9,15 @@ app.use(express.json());
 app.use(express.urlencoded( { extended: true } ));
 app.use(cors("*"));
 
+// import models
+const todoModel = require("./models/Todo.js");
+
 // GET request
-app.get("/todos", (req, res) => {
-    res.send("This is the main endpoint");
+app.get("/todos", async (req, res) => {
+    const response = await todoModel.find({});
+    console.log(response);
+    
+    res.json(response);
 });
 
 // run the server
@@ -20,8 +26,7 @@ app.listen(2000, () => {
 });
 
 // connect to database
-const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPPS@main-cluster.jqtcoe5.mongodb.net/";
-
+const connectionString = "mongodb+srv://jokesene:OB4ZhCmvaBmZtPPS@main-cluster.jqtcoe5.mongodb.net/todo_db";
 mongoose.connect(connectionString)
     .then(() => {console.log("Connection successful!")})
     .catch((err) => {console.log(err)});
