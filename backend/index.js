@@ -43,20 +43,6 @@ app.post("/todos", async (req, res) => {
     }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // run the server
 app.listen(2000, () => {
     console.log("Server has started");
