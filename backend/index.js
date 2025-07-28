@@ -59,6 +59,47 @@ app.delete("/todos/:id", async (req, res) => {
     }
 });
 
+
+
+// PUT request
+app.put("/todos/:id", async (req, res) => {
+    try {
+        // get id of entry we want to change
+        const id = req.params.id;
+        const newText = req.body.text;
+
+        // create the new todo item and update it
+        const newTodo = {
+            "text": newText
+        };
+        await todoModel.findByIdAndUpdate(id, newTodo);
+
+        res.status(200).send("Updated entry " + id + " with new text: " + newText);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Unable to update entry: " + err);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // run the server
 app.listen(2000, () => {
     console.log("Server has started");
