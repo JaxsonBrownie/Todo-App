@@ -39,9 +39,41 @@ app.post("/todos", async (req, res) => {
         res.status(200).send("Post request successful");
     } catch (err) {
         console.log(err);
-        res.status(500).send("Post request unsuccessful");
+        res.status(500).send("Post request unsuccessful: " + err);
     }
 });
+
+
+
+
+// DELETE request
+app.delete("/todos/:id", async (req, res) => {
+    try {
+        // get URL parameter
+        const id = req.params.id;
+
+        // find and delete entry in the database
+        await todoModel.findByIdAndDelete(id);
+
+        res.status(200).send("Deleted item: " + id);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Unable to delete item: " + id);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // run the server
 app.listen(2000, () => {
