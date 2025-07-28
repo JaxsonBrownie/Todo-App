@@ -43,9 +43,6 @@ app.post("/todos", async (req, res) => {
     }
 });
 
-
-
-
 // DELETE request
 app.delete("/todos/:id", async (req, res) => {
     try {
@@ -61,19 +58,6 @@ app.delete("/todos/:id", async (req, res) => {
         res.status(500).send("Unable to delete item: " + id);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // run the server
 app.listen(2000, () => {
