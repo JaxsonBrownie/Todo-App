@@ -59,8 +59,6 @@ app.delete("/todos/:id", async (req, res) => {
     }
 });
 
-
-
 // PUT request
 app.put("/todos/:id", async (req, res) => {
     try {
@@ -80,25 +78,6 @@ app.put("/todos/:id", async (req, res) => {
         res.status(500).send("Unable to update entry: " + err);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // run the server
 app.listen(2000, () => {
