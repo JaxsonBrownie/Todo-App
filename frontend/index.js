@@ -46,4 +46,29 @@ async function getTodos() {
     });
 }
 
+async function postTodo() {
+    // get todo input value
+    const todoInput = document.getElementById("todo-input");
+    let todoValue = todoInput.value;
+
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: todoValue
+        })
+    };
+    const response = await fetch(backendURL + "/todos", options);
+
+    if (response.ok) {
+        console.log("Todo item added successfully");
+        location.reload();
+    } else {
+        console.log("Todo item could not be added");
+    }
+}
+
+
 getTodos();
