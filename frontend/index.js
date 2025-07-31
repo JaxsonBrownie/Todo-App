@@ -30,11 +30,18 @@ async function getTodos() {
 
         // create buttons
         const updateBtn = document.createElement("button");
+        updateBtn.innerHTML = "Update";
+        updateBtn.style.margin = "4px";
         const deleteBtn = document.createElement("button");
+        deleteBtn.innerHTML = "Delete";
+        deleteBtn.style.margin = "4px";
 
-        todoListItem.appendChild(updateBtn);
-        todoListItem.appendChild(deleteBtn);
+        // create div
+        const buttonDiv = document.createElement("div");
+        buttonDiv.appendChild(updateBtn);
+        buttonDiv.appendChild(deleteBtn);
 
+        todoListItem.appendChild(buttonDiv);
         todoItemsContainer.appendChild(todoListItem);
     });
 }
