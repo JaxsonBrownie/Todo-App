@@ -38,6 +38,9 @@ async function getTodos() {
         const updateBtn = document.createElement("button");
         updateBtn.innerHTML = "Update";
         updateBtn.style.margin = "4px";
+        updateBtn.addEventListener("click", () => {
+            updateTodo(todoEntry._id);
+        });
 
         const deleteBtn = document.createElement("button");
         deleteBtn.innerHTML = "Delete";
@@ -108,6 +111,38 @@ async function deleteTodo(id) {
         location.reload();
     } else {
         console.log("Delete unsuccessful");
+    }
+}
+
+/*
+NAME:       updateTodo
+PURPOSE:    Update an existing todo list item.
+*/
+async function updateTodo(id) {
+    // get the new todo text
+    const todoInputElement = document.getElementById("todo-input");
+    let todoInputValue = todoInputElement.value;
+
+    // defining the http request options
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: todoInputValue
+        })
+    };
+
+    // send the http request
+    const response = await fetch(backendURL + "/todos/" + id, options);
+
+    // handle the response
+    if (response.ok) {
+        console.log("Todo item successfully updated");
+        location.reload();
+    } else {
+        console.log("Todo item updated failed");
     }
 }
 
