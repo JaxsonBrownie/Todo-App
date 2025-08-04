@@ -7,6 +7,12 @@ dateElement.innerHTML = date.toLocaleDateString();
 const backendURL = "http://localhost:2000";
 
 // ================================================
+
+/*
+NAME:       getTodo
+PURPOSE:    Sends a HTTP GET request to fetch all database
+            entries, and renders the results in HTML.
+*/
 async function getTodos() {
     const options = {
         method: "GET",
@@ -50,6 +56,10 @@ async function getTodos() {
     });
 }
 
+/*
+NAME:       postTodo
+PURPOSE:    Handles sending a HTTP POST request to add new entries.
+*/
 async function postTodo() {
     // get todo input value
     const todoInput = document.getElementById("todo-input");
@@ -78,6 +88,11 @@ async function postTodo() {
     }
 }
 
+/*
+NAME:       deleteTodo
+PURPOSE:    Handles sending a HTTP delete request to delete
+            existing entries.
+*/
 async function deleteTodo(id) {
     // define http request options
     const options = {
