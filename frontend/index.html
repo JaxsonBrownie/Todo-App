@@ -2,7 +2,7 @@
 
 <html lang="en">
     <head>
-        <title>Todo Application</title>
+        <title>Todo App - Welcome</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,16 +11,53 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <div class="text-center">
-            <h1>To do list for <span id="date">today</span></h1>
-            <input id="todo-input" placeholder="Enter your todo task"></input>
-            <button onclick="postTodo()">Add</button>
+        <header class="p-3" style="background-color: salmon;">
+            <h1 class="text-center">Welcome to the Todo Application</h1>
+        </header>
 
-            <div id="todo-items" style="width: 400px" class="mx-auto todo-items">
+        <div class="container">
+            <div class="row p-3">
+                <div class="col">
+                    <h4 class="m-3">Handle all of your todo list items in this neat and tidy application.</h4>
+
+                    <div class="m-3 datetime-container">
+                        Todays Date: <span id="today-date"></span>
+                        <br>
+                        Current Time: <span id="current-time"></span>
+                    </div>
+
+                    <a class="btn btn-primary mx-3" href="todo.html">To Main Page</a>
+                </div>
+                <div class="col">
+                    <img src="images/cat.webp" alt="coding cat" class="img-fluid border">
+                </div>
             </div>
         </div>
 
+        <br><br><br><br>
+
+        <footer class="p-2" style="background-color: salmon;">
+            <div class="text-center">Jaxson Brown - <span id="copyright-year"></span> ©</div>
+        </footer>
+
+        <script>
+            // set the date
+            const date = new Date();
+
+            const todaysDate = document.getElementById("today-date");
+            todaysDate.innerHTML = date.toLocaleDateString();
+
+            // set copyright year
+            document.getElementById("copyright-year").innerHTML = date.getFullYear();
+
+            // set the time every 1 seconds
+            const currentTime = document.getElementById("current-time");
+            setInterval(() => {
+                const date = new Date();
+                currentTime.innerHTML = date.toLocaleTimeString();
+            }, 1000);
+
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="index.js"></script>
     </body>
 </html>
