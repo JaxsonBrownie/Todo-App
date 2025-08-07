@@ -11,12 +11,36 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <div class="text-center">
-            <h1>To do list for <span id="date">today</span></h1>
-            <input id="todo-input" placeholder="Enter your todo task"></input>
-            <button onclick="postTodo()">Add</button>
+        <!-- header -->
+        <header class="p-3" style="background-color: salmon;">
+            <h1 class="text-center">To do list for <span id="date">today</span></h1>
+        </header>
 
-            <div id="todo-items" style="width: 400px" class="mx-auto todo-items">
+        <!-- add new item section -->
+        <div class="container p-4" style="max-width: 1000px;">
+            <div class="row">
+                <div class="col px-2">
+                    <div class="input-group">
+                        <input id="todo-input" placeholder="Enter your todo task" class="form-control"></input>
+                        <button onclick="postTodo()" class="btn btn-warning">Add</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="info.html">
+                        <i class="bi bi-question-circle fs-5"></i>
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="btn btn-primary btn-sm" href="todo.html">Return to Home Page</a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="m-0">
+
+        <div class="container p-4" style="max-width: 900px;">
+            <h2>Schedule</h2>
+            <div id="todo-items" class="todo-items" style="width: 500px">
             </div>
         </div>
 

@@ -1,10 +1,11 @@
 .todo-items li {
     border: 2px solid black;
+    border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 4px;
-    margin: 5px;
+    margin: 5px 0px 5px 0px;
 }
 
 .datetime-container {

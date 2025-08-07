@@ -11,10 +11,12 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
+        <!-- header -->
         <header class="p-3" style="background-color: salmon;">
             <h1 class="text-center">Welcome to the Todo Application</h1>
         </header>
 
+        <!-- main content -->
         <div class="container">
             <div class="row p-3">
                 <div class="col">
@@ -34,12 +36,15 @@
             </div>
         </div>
 
-        <br><br><br><br>
+        <!-- padding to fill out the page -->
+        <br><br><br><br><br><br>
 
+        <!-- footer -->
         <footer class="p-2" style="background-color: salmon;">
             <div class="text-center">Jaxson Brown - <span id="copyright-year"></span> ©</div>
         </footer>
 
+        <!-- dynamic javascript -->
         <script>
             // set the date
             const date = new Date();
@@ -52,6 +57,7 @@
 
             // set the time every 1 seconds
             const currentTime = document.getElementById("current-time");
+            currentTime.innerHTML = date.toLocaleTimeString();
             setInterval(() => {
                 const date = new Date();
                 currentTime.innerHTML = date.toLocaleTimeString();
