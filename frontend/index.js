@@ -4,7 +4,7 @@ const dateElement = document.getElementById("date");
 const date = new Date();
 dateElement.innerHTML = date.toLocaleDateString();
 
-const backendURL = "https://todo-app-backend-gilt.vercel.app";
+const backendURL = "https://todo-app-backend-gilt.vercel.app/api";
 
 // ================================================
 
