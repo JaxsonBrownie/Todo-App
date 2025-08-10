@@ -89,7 +89,7 @@ app.listen(2000, () => {
     console.log("Server has started");
 });
 
-// connect to database
+// connect to database (THIS WILL BE DIFFERENT FOR YOU!)
 const connectionString = CONNECTION_STRING;
 
 mongoose.connect(connectionString)
