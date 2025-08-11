@@ -5,8 +5,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-// test
-
 // export environment variable
 dotenv.config();
 const CONNECTION_STRING = process.env.CONNECTION_STRING;
