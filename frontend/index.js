@@ -4,7 +4,7 @@ const dateElement = document.getElementById("date");
 const date = new Date();
 dateElement.innerHTML = date.toLocaleDateString();
 
-const backendURL = "/api";
+const backendURL = "http://localhost:2000";
 
 // ================================================
 
