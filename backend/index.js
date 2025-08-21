@@ -17,6 +17,13 @@ app.use(cors("*"));
 // import models
 const todoModel = require("./models/Todo.js");
 
+// connect to database (THIS WILL BE DIFFERENT FOR YOU!)
+const connectionString = CONNECTION_STRING;
+
+mongoose.connect(connectionString)
+    .then(() => {console.log("Connection successful!")})
+    .catch((err) => {console.log(err)});
+
 // GET request
 app.get("/todos", async (req, res) => {
     try {
@@ -88,10 +95,3 @@ app.put("/todos/:id", async (req, res) => {
 app.listen(2000, () => {
     console.log("Server has started");
 });
-
-// connect to database (THIS WILL BE DIFFERENT FOR YOU!)
-const connectionString = CONNECTION_STRING;
-
-mongoose.connect(connectionString)
-    .then(() => {console.log("Connection successful!")})
-    .catch((err) => {console.log(err)});
