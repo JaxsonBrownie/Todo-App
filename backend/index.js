@@ -25,7 +25,7 @@ mongoose.connect(connectionString)
     .catch((err) => {console.log(err)});
 
 // GET request
-app.get("/todos", async (req, res) => {
+app.get("/api/todos", async (req, res) => {
     try {
         // retrieve collection documents
         const response = await todoModel.find({});
@@ -40,7 +40,7 @@ app.get("/todos", async (req, res) => {
 });
 
 // POST request
-app.post("/todos", async (req, res) => {
+app.post("/api/todos", async (req, res) => {
     try {
         // retrieve body data
         const todo = req.body;
@@ -56,7 +56,7 @@ app.post("/todos", async (req, res) => {
 });
 
 // DELETE request
-app.delete("/todos/:id", async (req, res) => {
+app.delete("/api/todos/:id", async (req, res) => {
     try {
         // get URL parameter
         const id = req.params.id;
@@ -72,7 +72,7 @@ app.delete("/todos/:id", async (req, res) => {
 });
 
 // PUT request
-app.put("/todos/:id", async (req, res) => {
+app.put("/api/todos/:id", async (req, res) => {
     try {
         // get id of entry we want to change
         const id = req.params.id;
